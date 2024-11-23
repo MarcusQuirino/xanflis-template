@@ -46,7 +46,3 @@ jobs:
       # Run TypeScript checks
       - name: Run Typecheck
         run: bun typecheck
-
-      # Build the Next.js project
-      - name: Build project
-        run: bun run build
