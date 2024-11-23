@@ -3,6 +3,8 @@ import { auth, currentUser } from "@clerk/nextjs/server";
 import Link from "next/link";
 import { redirect } from "next/navigation";
 
+export const dynamic = "force-dynamic";
+
 export default async function OnboardingPage() {
   const { userId } = await auth();
   const user = await currentUser();
