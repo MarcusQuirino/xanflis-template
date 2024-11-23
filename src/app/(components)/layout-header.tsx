@@ -1,6 +1,6 @@
+import { SignInButton } from "@/components/sign-in-button";
 import { ThemeToggle } from "@/components/theme-toggle";
-import { Button } from "@/components/ui/button";
-import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
+import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 export function LayoutHeader() {
   return (
@@ -8,9 +8,7 @@ export function LayoutHeader() {
       <ThemeToggle />
       <div>
         <SignedOut>
-          <Button>
-            <SignInButton />
-          </Button>
+          <SignInButton />
         </SignedOut>
         <SignedIn>
           <UserButton />
