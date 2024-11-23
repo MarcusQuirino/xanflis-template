@@ -1,13 +1,15 @@
+import { revalidatePath } from "next/cache";
+
+import { auth } from "@clerk/nextjs/server";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { findUserByClerkId } from "@/lib/clerk";
+import { findUserByClerkId, getUser } from "@/lib/clerk";
 import { db } from "@/server/db";
 import { posts } from "@/server/db/schema";
-import { auth, currentUser } from "@clerk/nextjs/server";
-import { revalidatePath } from "next/cache";
 
 export async function PostThing() {
   const { userId } = await auth();
@@ -63,8 +65,7 @@ export async function PostThing() {
       <div>
         <ScrollArea className="h-[400px]">
           {postList.map(async (post) => {
-            const user = await currentUser();
-            if (!user) return null;
+            const user = await getUser(post.user.clerkId);
             return (
               <Card key={post.id} className="mb-3 overflow-hidden p-4">
                 <div className="flex gap-3">

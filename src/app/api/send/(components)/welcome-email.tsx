@@ -1,4 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
+import * as React from 'react'
+
 import {
   Body,
   Button,
@@ -9,13 +11,12 @@ import {
   Img,
   Preview,
   Section,
-  Text,
   Tailwind,
-} from "@react-email/components";
-import * as React from "react";
+  Text,
+} from '@react-email/components'
 
-const WelcomeEmail = ({ username = "Steve" }: WelcomeEmailProps) => {
-  const previewText = `Welcome to Xanflis, ${username}!`;
+const WelcomeEmail = ({ username = 'Steve' }: WelcomeEmailProps) => {
+  const previewText = `Welcome to Xanflis, ${username}!`
 
   return (
     <Html>
@@ -59,15 +60,15 @@ const WelcomeEmail = ({ username = "Steve" }: WelcomeEmailProps) => {
         </Body>
       </Tailwind>
     </Html>
-  );
-};
+  )
+}
 
 interface WelcomeEmailProps {
-  username?: string;
+  username?: string
 }
 
 const baseUrl = process.env.URL
   ? `https://${process.env.URL}`
-  : "http://localhost:3000";
+  : 'http://localhost:3000'
 
-export default WelcomeEmail;
+export default WelcomeEmail

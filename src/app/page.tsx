@@ -1,5 +1,5 @@
-import { SignInButton } from "@/components/sign-in-button";
-import { SignedIn, SignedOut } from "@clerk/nextjs";
+import { SignedIn } from "@clerk/nextjs";
+
 import { PostThing } from "./(components)/post-thing";
 
 export default function HomePage() {
@@ -15,9 +15,6 @@ export default function HomePage() {
       </div>
       <div className="p-4" />
       <div className="w-full">
-        <SignedOut>
-          <SignInButton />
-        </SignedOut>
         <SignedIn>
           <PostThing />
         </SignedIn>

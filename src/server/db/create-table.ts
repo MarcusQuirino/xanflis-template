@@ -1,4 +1,4 @@
-import { sqliteTableCreator } from "drizzle-orm/sqlite-core";
+import { sqliteTableCreator } from 'drizzle-orm/sqlite-core'
 
 /**
  * This is an example of how to use the multi-project schema feature of Drizzle ORM. Use the same
@@ -7,5 +7,5 @@ import { sqliteTableCreator } from "drizzle-orm/sqlite-core";
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */
 export const createTable = sqliteTableCreator(
-  (name: string) => `xanflis-template_${name}`,
-);
+  (name: string) => `xanflis-template_${name}`
+)

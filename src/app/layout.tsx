@@ -1,10 +1,14 @@
+import { type Metadata } from "next";
+
+import { ClerkProvider } from "@clerk/nextjs";
+import { dark } from "@clerk/themes";
+import { GeistSans } from "geist/font/sans";
+
 import { ThemeProvider } from "@/components/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
-import { GeistSans } from "geist/font/sans";
-import { type Metadata } from "next";
+
 import { LayoutHeader } from "./(components)/layout-header";
 
 export const metadata: Metadata = {
@@ -16,7 +20,12 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <ClerkProvider>
+    <ClerkProvider
+      appearance={{
+        baseTheme: dark,
+      }}
+      afterSignOutUrl="/"
+    >
       <html
         lang="en"
         className={`${GeistSans.variable}`}
