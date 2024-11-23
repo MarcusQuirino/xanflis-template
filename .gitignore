@@ -41,6 +41,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+tsconfig.tsbuildinfo
 
 # idea files
 .idea

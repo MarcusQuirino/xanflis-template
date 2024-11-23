@@ -1,5 +1,6 @@
 import { createUser } from "@/lib/user";
 import { auth, currentUser } from "@clerk/nextjs/server";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 
 export default async function OnboardingPage() {
@@ -26,12 +27,12 @@ export default async function OnboardingPage() {
             Your account has been successfully created. You can now start using
             the platform.
           </p>
-          <a
+          <Link
             href="/"
             className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground ring-offset-background transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             Get Started
-          </a>
+          </Link>
         </div>
       </div>
     );

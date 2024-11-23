@@ -13,7 +13,10 @@
     "lint": "next lint",
     "lint:fix": "next lint --fix",
     "start": "next start",
-    "format": "prettier src/  --write"
+    "format": "prettier src/  --write",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run lint && npm run typecheck && npm run format:check",
+    "format:check": "prettier --check src/"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.5.0",

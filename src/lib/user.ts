@@ -1,5 +1,5 @@
 import { db } from "@/server/db";
-import { insertUserSchema, users } from "@/server/db/schema";
+import { type insertUserSchema, users } from "@/server/db/schema";
 import { z } from "zod";
 
 export async function createUser(data: z.infer<typeof insertUserSchema>) {
