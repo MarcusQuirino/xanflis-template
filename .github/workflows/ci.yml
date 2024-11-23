@@ -12,6 +12,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    env:
+      SKIP_ENV_VALIDATION: true
+
     steps:
       # Checkout the repository
       - name: Checkout code
