@@ -1,8 +1,16 @@
 import { SignedIn } from "@clerk/nextjs";
 
+import { client } from "@/lib/client";
 import { PostThing } from "./(components)/post-thing";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const res = await client.api.hello.$post({
+    json: {
+      title: "Hello",
+      body: "World",
+    },
+  });
+  const data = await res.json();
   return (
     <div className="flex h-full w-full flex-col items-center justify-around p-4">
       <div className="flex flex-col gap-4 text-center">
