@@ -1,7 +1,9 @@
-import { ClerkProvider } from "@clerk/nextjs";
-import { dark } from "@clerk/themes";
+import { ClerkProvider } from '@clerk/nextjs'
+import { dark } from '@clerk/themes'
 
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from '@/components/theme-provider'
+
+import { SidebarProvider } from './ui/sidebar'
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -12,8 +14,8 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         enableSystem
         disableTransitionOnChange
       >
-        {children}
+        <SidebarProvider>{children}</SidebarProvider>
       </ThemeProvider>
     </ClerkProvider>
-  );
+  )
 }

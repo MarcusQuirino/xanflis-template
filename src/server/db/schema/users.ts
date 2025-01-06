@@ -34,6 +34,7 @@ export default users
 export const selectUserSchema = createSelectSchema(users)
 export const insertUserSchema = createInsertSchema(users).pick({
   clerkId: true,
+  role: true,
 })
 
 export enum Role {

@@ -1,16 +1,18 @@
-import { SignedIn } from "@clerk/nextjs";
+import { SignedIn } from '@clerk/nextjs'
 
-import { client } from "@/lib/client";
-import { PostThing } from "./(components)/post-thing";
+import { PostThing } from '@/app/(components)/post-thing'
+import { client } from '@/lib/client'
 
 export default async function HomePage() {
   const res = await client.api.hello.$post({
     json: {
-      title: "Hello",
-      body: "World",
+      title: 'Hello',
+      body: 'World',
     },
-  });
-  const data = await res.json();
+  })
+  const data = await res.json()
+
+  console.log(data)
   return (
     <div className="flex h-full w-full flex-col items-center justify-around p-4">
       <div className="flex flex-col gap-4 text-center">
@@ -28,5 +30,5 @@ export default async function HomePage() {
         </SignedIn>
       </div>
     </div>
-  );
+  )
 }

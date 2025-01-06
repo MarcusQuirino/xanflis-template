@@ -1,18 +1,20 @@
-import { type Metadata } from "next";
+import { type Metadata } from 'next'
 
-import { GeistSans } from "geist/font/sans";
+import { GeistSans } from 'geist/font/sans'
 
-import { Toaster } from "@/components/ui/sonner";
-import { cn } from "@/lib/utils";
-import "@/styles/globals.css";
+import { AppSidebar } from '@/components/app-sidebar'
+import Providers from '@/components/providers'
+import { SidebarTrigger } from '@/components/ui/sidebar'
+import { Toaster } from '@/components/ui/sonner'
+import { cn } from '@/lib/utils'
+import '@/styles/globals.css'
 
-import Providers from "@/components/providers";
-import { LayoutHeader } from "./(components)/layout-header";
+import { LayoutHeader } from './(components)/layout-header'
 
 export const metadata: Metadata = {
-  title: "Xanflis Template",
-  description: "build on top of 3T",
-};
+  title: 'Xanflis Template',
+  description: 'build on top of 3T',
+}
 
 export default function RootLayout({
   children,
@@ -31,16 +33,24 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          "min-w-screen h-[calc(100vh-5rem)] overflow-hidden bg-background antialiased",
-          GeistSans.variable,
+          'min-w-screen h-screen overflow-hidden bg-background antialiased',
+          GeistSans.variable
         )}
       >
         <Providers>
-          <LayoutHeader />
-          {children}
+          <div className="flex h-full">
+            <AppSidebar />
+            <main className="flex-1 overflow-auto">
+              <LayoutHeader />
+              <div className="container mx-auto p-4">
+                <SidebarTrigger />
+                {children}
+              </div>
+            </main>
+          </div>
           <Toaster />
         </Providers>
       </body>
     </html>
-  );
+  )
 }

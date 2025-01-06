@@ -1,6 +1,9 @@
 import * as React from 'react'
 
-import { SignInButton as ClerkSignInButton } from '@clerk/nextjs'
+import {
+  SignInButton as ClerkSignInButton,
+  SignUpButton as ClerkSignUpButton,
+} from '@clerk/nextjs'
 import { type VariantProps, cva } from 'class-variance-authority'
 
 import { cn } from '@/lib/utils'
@@ -30,21 +33,22 @@ export interface ButtonProps
   extends React.HTMLAttributes<HTMLDivElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean
+  mode: 'signin' | 'signup'
 }
 
-const SignInButton = React.forwardRef<HTMLDivElement, ButtonProps>(
-  ({ className, variant, size, ...props }, ref) => {
+const SignButton = React.forwardRef<HTMLDivElement, ButtonProps>(
+  ({ className, variant, size, mode, ...props }, ref) => {
     return (
       <div
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
       >
-        <ClerkSignInButton />
+        {mode === 'signin' ? <ClerkSignInButton /> : <ClerkSignUpButton />}
       </div>
     )
   }
 )
-SignInButton.displayName = 'SignInButton'
+SignButton.displayName = 'SignButton'
 
-export { buttonVariants, SignInButton }
+export { SignButton, buttonVariants }

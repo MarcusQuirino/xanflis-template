@@ -1,0 +1,4 @@
+- [ ] fix the onboarding page redirect when logged in
+- [ ] add Stripe integration
+- [ ] add sidebar
+- [ ] add invite flow
